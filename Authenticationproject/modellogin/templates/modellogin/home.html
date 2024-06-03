@@ -1,0 +1,226 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Login Authentication{% endblock title %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body> 
+    <header>
+        <nav class="flex justify-between items-center py-4">
+            <!-- Logo -->
+            <a href="/" class="text-lg font-bold text-gray-800"><img class="w-11 h-11 ml-7"  src="{% static 'image/logo.jpeg' %}" alt="logo"></a>
+            <!-- Navigation Items -->
+            <ul class="flex flex-wrap justify-center items-center">
+                <li class="mr-6">
+                    <a href="/" class="text-lg text-gray-600 hover:text-gray-900">Home</a>
+                </li>
+                <li class="mr-6">
+                    <a href="{% url 'about' %}" class="text-lg text-gray-600 hover:text-gray-900">About</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="mr-6">
+                    <a href="{% url 'logout' %}" class="text-lg text-gray-600 hover:text-gray-900">Logout</a>
+                </li>
+                <li class="mr-6">
+                    <a href="{% url 'profile' %}" class="text-lg text-gray-600 hover:text-gray-900">Profile</a>
+                </li>
+                {% else %} 
+                <li class="mr-6">  
+                    <a href="{% url 'login' %}" class="text-lg text-gray-600 hover:text-gray-900">login</a>
+                </li>
+                <li class="mr-6">
+                    <a href="{% url 'signup' %}" class="text-lg text-gray-600 hover:text-gray-900">Signin</a>
+                </li>
+                {% endif %}
+            </ul> 
+        </nav>     
+    </header>
+
+    {% block content %}
+    <section
+    class="ezy__blog7 light text-stone-800 bg-white dark:bg-[#0b1727] dark:text-white"
+    >
+    <img
+      src="https://images.pexels.com/photos/941555/pexels-photo-941555.jpeg?"
+      alt=""
+      class="h-screen w-full"
+    />
+
+    <div class="py-14 md:py-24">
+      <div class="container px-8 md:px-24">
+        <div class="grid grid-cols-12 justify-center">
+          <div class="col-span-12 lg:col-span-8">
+            <h2
+              class="text-[32px] lg:text-[45px] leading-none font-bold mb-4"
+            >
+              Heal the world with banking blog.
+            </h2>
+            <p class="text-lg font-medium opacity-80 mb-9">
+              Banking crises have developed many times throughout history when
+              one or more risks have emerged for a banking sector as a whole.
+            </p>
+            <a
+              href=""
+              class="bg-blue-600 hover:bg-opacity-90 text-white font-bold border border-blue-600 py-3 px-7 rounded transition"
+              >Load All Posts</a
+            >
+          </div>
+        </div>
+
+        <div class="grid grid-cols-6 mt-12 gap-6">
+          <!-- blog item -->
+          <div class="col-span-6 md:col-span-3 lg:col-span-2 mb-3">
+            <article
+              class="rounded-lg shadow-lg dark:bg-[#1E2735] dark:shadow-none overflow-hidden pb-2"
+            >
+              <div class="relative">
+                <img
+                  src="https://cdn.easyfrontend.com/pictures/blog/blog_3.jpg"
+                  alt=""
+                  class="h-auto w-full shadow-lg dark:shadow-none"
+                />
+                <div
+                  class="absolute bottom-2 left-2 text-lg leading-6 px-6 py-3 font-black bg-white opacity-80 rounded-lg"
+                >
+                  26<br />Oct<br />2016
+                </div>
+              </div>
+              <div class="p-4 pb-8 md:p-6">
+                <p class="font-light text-sm leading-6">
+                  By <a href="" class="text-blue-600">Mahws Georgia</a>
+                </p>
+                <h4 class="font-medium text-2xl">
+                  Dolor sit amet, consectetur adiplscing eliyt sed
+                </h4>
+                <p class="opacity-60 mt-3 mb-6">
+                  Assumenda non repellendus distinctio nihil dicta sapiente,
+                  quibusdam maiores.
+                </p>
+                <a
+                  href=""
+                  class="bg-transparent hover:bg-blue-600 border border-blue-600 hover:text-white py-2 px-5 rounded transition mb-5"
+                  >Read More</a
+                >
+              </div>
+            </article>
+          </div>
+          <!-- blog item -->
+          <div class="col-span-6 md:col-span-3 lg:col-span-2 mb-3">
+            <article
+              class="rounded-lg shadow-lg dark:bg-[#1E2735] dark:shadow-none overflow-hidden pb-2"
+            >
+              <div class="relative">
+                <img
+                  src="https://cdn.easyfrontend.com/pictures/blog/blog_4.jpg"
+                  alt=""
+                  class="h-auto w-full shadow-lg dark:shadow-none"
+                />
+                <div
+                  class="absolute bottom-2 left-2 text-lg leading-6 px-6 py-3 font-black bg-white opacity-80 rounded-lg"
+                >
+                  26<br />Oct<br />2016
+                </div>
+              </div>
+              <div class="p-4 pb-8 md:p-6">
+                <p class="font-light text-sm leading-6">
+                  By <a href="" class="text-blue-600">Mahws Georgia</a>
+                </p>
+                <h4 class="font-medium text-2xl">
+                  Dolor sit amet, consectetur adiplscing eliyt sed
+                </h4>
+                <p class="opacity-60 mt-3 mb-6">
+                  Assumenda non repellendus distinctio nihil dicta sapiente,
+                  quibusdam maiores.
+                </p>
+                <a
+                  href=""
+                  class="bg-transparent hover:bg-blue-600 border border-blue-600 hover:text-white py-2 px-5 rounded transition mb-5"
+                  >Read More</a
+                >
+              </div>
+            </article>
+          </div>
+          <!-- blog item -->
+          <div class="col-span-6 md:col-span-3 lg:col-span-2 mb-3">
+            <article
+              class="rounded-lg shadow-lg dark:bg-[#1E2735] dark:shadow-none overflow-hidden pb-2"
+            >
+              <div class="relative">
+                <img
+                  src="https://cdn.easyfrontend.com/pictures/blog/blog_9.jpg"
+                  alt=""
+                  class="h-auto w-full shadow-lg dark:shadow-none"
+                />
+                <div
+                  class="absolute bottom-2 left-2 text-lg leading-6 px-6 py-3 font-black bg-white opacity-80 rounded-lg"
+                >
+                  26<br />Oct<br />2016
+                </div>
+              </div>
+              <div class="p-4 pb-8 md:p-6">
+                <p class="font-light text-sm leading-6">
+                  By <a href="" class="text-blue-600">Mahws Georgia</a>
+                </p>
+                <h4 class="font-medium text-2xl">
+                  Dolor sit amet, consectetur adiplscing eliyt sed
+                </h4>
+                <p class="opacity-60 mt-3 mb-6">
+                  Assumenda non repellendus distinctio nihil dicta sapiente,
+                  quibusdam maiores.
+                </p>
+                <a
+                  href=""
+                  class="bg-transparent hover:bg-blue-600 border border-blue-600 hover:text-white py-2 px-5 rounded transition mb-5"
+                  >Read More</a
+                >
+              </div>
+            </article>
+          </div>
+          <!-- blog item -->
+          <div class="col-span-6 md:col-span-3 lg:col-span-2 mb-3">
+            <article
+              class="rounded-lg shadow-lg dark:bg-[#1E2735] dark:shadow-none overflow-hidden pb-2"
+            >
+              <div class="relative">
+                <img
+                  src="https://cdn.easyfrontend.com/pictures/blog/blog_9.jpg"
+                  alt=""
+                  class="h-auto w-full shadow-lg dark:shadow-none"
+                />
+                <div
+                  class="absolute bottom-2 left-2 text-lg leading-6 px-6 py-3 font-black bg-white opacity-80 rounded-lg"
+                >
+                  26<br />Oct<br />2016
+                </div>
+              </div>
+              <div class="p-4 pb-8 md:p-6">
+                <p class="font-light text-sm leading-6">
+                  By <a href="" class="text-blue-600">Mahws Georgia</a>
+                </p>
+                <h4 class="font-medium text-2xl">
+                  Dolor sit amet, consectetur adiplscing eliyt sed
+                </h4>
+                <p class="opacity-60 mt-3 mb-6">
+                  Assumenda non repellendus distinctio nihil dicta sapiente,
+                  quibusdam maiores.
+                </p>
+                <a
+                  href=""
+                  class="bg-transparent hover:bg-blue-600 border border-blue-600 hover:text-white py-2 px-5 rounded transition mb-5"
+                  >Read More</a
+                >
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    {% endblock content %}
+</body>
+</html> 

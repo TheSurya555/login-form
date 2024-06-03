@@ -1,0 +1,76 @@
+{% extends 'modellogin/home.html' %}
+{% block title %}Profile{% endblock title %}
+
+{% block content %}
+<section class="container mx-auto py-10">
+    <div class="max-w-4xl mx-auto px-4">
+        <h1 class="text-3xl font-bold mb-6">User Profile</h1>
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <div class="p-6">
+                <p class="text-lg font-semibold">Username: {{ user.username }}</p>
+                <p class="text-lg font-semibold">First Name: {{ user.first_name }}</p>
+                <p class="text-lg font-semibold">Last Name: {{ user.last_name }}</p>
+                <p class="text-lg font-semibold">Email: {{ user.email }}</p>
+                <!-- Add more profile information here -->
+
+                <!-- Button to open edit modal -->
+                <button id="editProfileBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Edit Profile</button>
+                <a href="{% url 'changepass' %}"><button id="editProfileBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Change Password</button></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Edit Profile Modal -->
+<div id="editProfileModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Edit Profile</h2>
+        <!-- Form for editing profile -->
+        <form method="post">
+            {% csrf_token %}
+            <div class="flex justify-center mb-4">
+                {{edit.first_name}}
+                {{edit.last_name}}
+            </div>
+            <div class="w-full relative mb-4">
+                {{edit.username}}
+                <i class="fas fa-user absolute top-1/2 -translate-y-1/2 right-2 opacity-80"></i>
+            </div>
+            <div class="w-full relative mb-4">
+                {{edit.email}}
+                <i class="fas fa-envelope absolute top-1/2 -translate-y-1/2 right-2 opacity-80"></i>
+            </div>
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("editProfileModal");
+    
+    // Get the button that opens the modal
+    var btn = document.getElementById("editProfileBtn");
+    
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+    
+    // When the user clicks the button, open the modal 
+    btn.onclick = function() {
+      modal.style.display = "block";
+    }
+    
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+</script>
+{% endblock content %}
